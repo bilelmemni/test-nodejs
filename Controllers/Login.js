@@ -14,11 +14,10 @@ exports.login=async(req,res)=>{
               if (valpassword) {
     
               
-              payload={        
-                _id:client._id,
-                email:client.Email
+                const data = {
+                  idClient: client._id
               }
-              token=jwt.sign(payload,'12345')
+              const token = jwt.sign(data, 'Secret', { expiresIn: '1d' })
     
               res.status(200).send({mytoken:token})
     

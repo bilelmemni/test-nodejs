@@ -10,7 +10,7 @@ const {register}=require('../Controllers/Registre')
 router.post('/registre',register)
 router.post('/login',login)
 router.get('/profile', passport.authenticate('bearer', { session: false }), (req, res) => {
-    res.send(req.client)
+    res.send(req.user)
 })
 
 
